@@ -1,0 +1,81 @@
+<!-- Salve como 'fase1.html' -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 7</title> <link rel="shortcut icon" href="android-chrome-192x192.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ff0000fd;
+            text-align: center;
+        }
+        .question-container {
+            background-color: #250303;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgb(235, 235, 235);
+        }
+        h2 {
+            color: rgba(255, 255, 255, 0.658);
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #000f01;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            box-shadow: 0 0 19px rgb(222, 221, 223);
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .wrong {
+            position: relative;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="question-container">
+        <h2> Qual foi nossa primeira comquista ?</h2>
+      
+        <button class="wrong" onclick="wrongAnswer()">guarda roupa</button>
+
+         <button onclick="nextLevel()">carro</button>
+
+        <button class="wrong" onclick="wrongAnswer()">Fogão</button>
+
+        <button class="wrong" onclick="wrongAnswer()">geladeira</button>
+        
+    </div>
+
+    <script>
+        function nextLevel() {
+            window.location.href = 'fase8.html';  // Carregar a próxima fase
+        }
+
+        function wrongAnswer() {
+            alert('Resposta errada, tente novamente!');
+        }
+
+        // Fazer as respostas erradas se moverem quando o mouse se aproxima
+        const wrongButtons = document.querySelectorAll('.wrong');
+        wrongButtons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.top = `${Math.random() * 300}px`;
+                button.style.left = `${Math.random() * 300}px`;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!-- Salve como 'fase1.html' -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 3</title> <link rel="shortcut icon" href="android-chrome-192x192.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #650fd6fd;
+            text-align: center;
+        }
+        .question-container {
+            background-color: #ae00ff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgb(255, 255, 255);
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #000f01;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .wrong {
+            position: relative;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="question-container">
+        <h2>Quem e mais calmo(a) ?</h2>
+      
+        <button class="wrong" onclick="wrongAnswer()">Eu</button>
+          <button onclick="nextLevel()">Você</button>
+        <button class="wrong" onclick="wrongAnswer()">Nois</button>
+        <button class="wrong" onclick="wrongAnswer()">Ainda tem duvida?</button>
+    </div>
+
+    <script>
+        function nextLevel() {
+            window.location.href = 'fase4.html';  // Carregar a próxima fase
+        }
+
+        function wrongAnswer() {
+            alert('Resposta errada, tente novamente!');
+        }
+
+        // Fazer as respostas erradas se moverem quando o mouse se aproxima
+        const wrongButtons = document.querySelectorAll('.wrong');
+        wrongButtons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.top = `${Math.random() * 300}px`;
+                button.style.left = `${Math.random() * 300}px`;
+            });
+        });
+    </script>
+</body>
+</html>

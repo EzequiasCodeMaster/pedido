@@ -1,0 +1,58 @@
+<!-- Salve como 'welcome.html' -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vinda</title> <link rel="shortcut icon" href="android-chrome-192x192.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+
+        p {
+            font-size: 1.5em;
+        }
+
+        .letraspequenas {
+            font-size: 0.5em;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Vamos ver se voçê sabe muito sobre nois, amor!</h1>
+        <p>Vamos ver se você consegue chegar até o final?</p>
+        <p class="letraspequenas">jogo contem 10 perguntas</p>
+        <button onclick="startGame()">EU CONSIGO</button>
+    </div>
+
+    <script>
+        function startGame() {
+            window.location.href = 'fase1.html';  // Carregar a primeira fase
+        }
+    </script>
+</body>
+</html>

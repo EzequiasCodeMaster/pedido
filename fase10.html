@@ -1,0 +1,77 @@
+<!-- Salve como 'fase1.html' -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 4</title> <link rel="shortcut icon" href="android-chrome-192x192.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color:#FF0000;
+            text-align: center;
+        }
+        .question-container {
+            background-color: #FFC0CB;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgb(235, 235, 235);
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #000f01;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            box-shadow: 0 0 19px rgb(222, 221, 223);
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .wrong {
+            position: relative;
+            transition: 0.3s;
+        }
+
+    </style>
+</head>
+<body>
+   
+    <div class="question-container"> <h1 class="ultima">Ultima Pergunta</h1>
+        <h2> A gente vai se amar pro resto da vida ?</h2>
+      
+        <button class="wrong" onclick="wrongAnswer()">Não</button>
+         
+        <button class="wrong" onclick="wrongAnswer()">Sera</button>
+        <button class="wrong" onclick="wrongAnswer()">Acho que sim</button>
+        
+         <button onclick="nextLevel()">ate que a morte nois separe</button>
+    </div>
+
+    <script>
+        function nextLevel() {
+            window.location.href = 'final.html';  // Carregar a próxima fase
+        }
+
+        function wrongAnswer() {
+            alert('Resposta errada, tente novamente!');
+        }
+
+        // Fazer as respostas erradas se moverem quando o mouse se aproxima
+        const wrongButtons = document.querySelectorAll('.wrong');
+        wrongButtons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.top = `${Math.random() * 300}px`;
+                button.style.left = `${Math.random() * 300}px`;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growing Roses</title>
+    <style>
+        body {
+            background-color: #000;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+        }
+
+        .flower {
+            position: absolute;
+            bottom: 0;
+            animation: grow 4s ease-in-out forwards;
+            transform-origin: bottom center;
+        }
+
+        .stem {
+            width: 4px;
+            height: 100px;
+            background-color: #228B22; /* Cor do caule verde */
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .leaves {
+            position: absolute;
+            bottom: 40px;
+            width: 10px;
+            height: 20px;
+            background-color: #228B22; /* Cor das folhas verdes */
+            border-radius: 10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-45deg);
+            animation: growLeaves 2s ease-in-out forwards 2s;
+        }
+
+        .leaves::before, .leaves::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background-color: #228B22;
+            border-radius: 10px;
+        }
+
+        .leaves::before {
+            transform: rotate(90deg);
+            left: -15px;
+            top: 0;
+        }
+
+        .leaves::after {
+            transform: rotate(90deg);
+            right: -15px;
+            top: 0;
+        }
+
+        .blossoms {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: -30px;
+            width: 60px;
+            opacity: 0;
+            animation: bloom 2s ease-in-out forwards 2s;
+        }
+
+        .blossom {
+            width: 30px;
+            height: 30px;
+            background-color: #FF0000; /* Cor vermelha para as pétalas */
+            border-radius: 50%;
+            margin: -5px;
+            transform-origin: center;
+        }
+
+        .blossom:nth-child(1) {
+            transform: scale(0.8) rotate(0deg);
+        }
+
+        .blossom:nth-child(2) {
+            transform: scale(0.8) rotate(45deg);
+        }
+
+        .blossom:nth-child(3) {
+            transform: scale(0.8) rotate(90deg);
+        }
+
+        .blossom:nth-child(4) {
+            transform: scale(0.8) rotate(135deg);
+        }
+
+        @keyframes grow {
+            from {
+                transform: scaleY(0);
+            }
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        @keyframes growLeaves {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bloom {
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .animated-text {
+            font-size: 2em;
+            font-weight: bold;
+            color: rgb(240, 13, 13);
+            animation: slideIn 2s ease-out;
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animated-text">
+        <h1>Voçê e a Mulher mais incrivel do Mundo</h1>
+    </div>
+    
+    
+    <script>
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+
+            const stem = document.createElement('div');
+            stem.classList.add('stem');
+
+            const leaves = document.createElement('div');
+            leaves.classList.add('leaves');
+
+            const blossoms = document.createElement('div');
+            blossoms.classList.add('blossoms');
+
+            for (let i = 0; i < 4; i++) {
+                const blossom = document.createElement('div');
+                blossom.classList.add('blossom');
+                blossoms.appendChild(blossom);
+            }
+
+            flower.appendChild(stem);
+            flower.appendChild(leaves);
+            flower.appendChild(blossoms);
+
+            document.body.appendChild(flower);
+
+            // Posiciona a flor em um local aleatório na tela
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            flower.style.left = `${x}px`;
+            flower.style.bottom = `${y}px`;
+
+            // Remove a flor após a animação para liberar memória
+            setTimeout(() => {
+                flower.remove();
+            }, 8000); // Duração da animação + algum tempo extra
+        }
+
+        function growFlowers() {
+            setInterval(createFlower, 500);
+        }
+
+        growFlowers();
+    </script>
+</body>
+</html>

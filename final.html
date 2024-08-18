@@ -1,0 +1,61 @@
+<!-- Salve como 'final.html' -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Casamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .final-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #4CAF50;
+        }
+
+        h2 {
+            font-size: 2em;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #FF69B4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #FF1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="final-container">
+        <h1>È Muito bom te ver Aqui...</h1>
+        <p>E agora, a pergunta mais importante:</p>
+        <h2>Quer se casar comigo?</h2>
+        <button onclick="nextLevel()">ate que a morte nois separe</button>
+    </div>
+
+    <script>
+        function nextLevel() {
+            window.location.href = 'final2.html';  // Carregar a próxima fase
+        }
+    </script>
+</body>
+</html>
